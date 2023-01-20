@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <title>CSV Data</title>
+  <script src="https://cdn.socket.io/socket.io-3.0.5.js"></script>
+  <script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    socket.on('connect', function() {});
+    socket.on('update_data', function(data) {
+        document.getElementById('data').innerHTML = data.data;
+    });
+  </script>
+</head>
+<body>
+  <div id="data"></div>
+</body>
+</html>
